@@ -1,9 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-漏洞扫描器图形化界面
-"""
-
 import json
 import os
 import sys
@@ -39,10 +33,8 @@ from PyQt5.QtWidgets import (
     QMenu,
     QAction,
 )
-
 # API配置
 API_BASE_URL = "http://localhost:8080/api"
-
 
 class VulnerabilityScannerGUI(QMainWindow):
     """漏洞扫描器主窗口"""
@@ -139,7 +131,6 @@ class VulnerabilityScannerGUI(QMainWindow):
 
         # POC分类与搜索
         filter_layout = QHBoxLayout()
-
         filter_layout.addWidget(QLabel("POC分类:"))
         self.category_combo = QComboBox()
         self.category_combo.addItem("全部", "")
@@ -148,7 +139,6 @@ class VulnerabilityScannerGUI(QMainWindow):
         self.category_combo.addItem("其他", "others")
         self.category_combo.currentIndexChanged.connect(self.filter_pocs)
         filter_layout.addWidget(self.category_combo)
-
         # 新增：搜索框
         filter_layout.addSpacing(20)
         filter_layout.addWidget(QLabel("搜索:"))
@@ -156,7 +146,6 @@ class VulnerabilityScannerGUI(QMainWindow):
         self.scan_search_input.setPlaceholderText("关键词搜索...")
         self.scan_search_input.textChanged.connect(self.filter_pocs)
         filter_layout.addWidget(self.scan_search_input)
-
         # 新增：全选复选框
         filter_layout.addSpacing(20)
         self.select_all_check = QCheckBox("全选")
@@ -177,7 +166,6 @@ class VulnerabilityScannerGUI(QMainWindow):
 
         poc_group.setLayout(poc_layout)
         layout.addWidget(poc_group)
-
         # 扫描配置区域
         scan_group = QGroupBox("扫描配置")
         scan_layout = QHBoxLayout()
@@ -500,9 +488,8 @@ class VulnerabilityScannerGUI(QMainWindow):
                     )
             except Exception as e:
                 QMessageBox.critical(self, "错误", f"请求删除过程中出错:\n{str(e)}")
-
+                
     # ==================== API调用 ====================
-
     def check_connection(self):
         """检查API连接"""
 
@@ -1072,19 +1059,15 @@ POC ID: {result.get('poc_id', '')}
 
 
 def main():
-    """主函数"""
     app = QApplication(sys.argv)
     app.setStyle("Fusion")
-
     # 设置应用信息
     app.setApplicationName("漏洞扫描器")
     app.setApplicationVersion("1.0.0")
     app.setOrganizationName("Security Team")
-
     # 创建并显示主窗口
     window = VulnerabilityScannerGUI()
     window.show()
-
     sys.exit(app.exec_())
 
 
