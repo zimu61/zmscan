@@ -143,8 +143,6 @@ python main.py
 | /stats | GET | 获取统计信息 |
 | /health | GET | 健康检查 |
 
-详细的API接口说明请参考 [开发文档](docs/开发文档.md)。
-
 ## POC编写
 
 POC采用YAML格式定义，基本结构如下：
