@@ -30,7 +30,6 @@
 │   ├── vendor/        # 厂商漏洞POC
 │   └── others/        # 其他POC
 └── docs/              # 文档目录
-    ├── 开发文档.md    # 开发文档和API接口说明
     └── POC编写规则.md # POC编写规则
 ```
 
@@ -122,8 +121,6 @@ python main.py
 - **重新加载**: 点击"重新加载POC"刷新POC库
 
 ## 文档
-
-- [开发文档](docs/开发文档.md) - 包含API接口文档、系统架构等
 - [POC编写规则](docs/POC编写规则.md) - POC格式规范和编写指南
 
 ## API接口
